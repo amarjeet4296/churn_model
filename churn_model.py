@@ -8,7 +8,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 
 # Set random seed for reproducibility
 np.random.seed(42)
-
+ 
 def generate_travel_data(n_samples=1000):
     """
     Generates synthetic data for a travel agency churn model.

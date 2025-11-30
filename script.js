@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const cancellations = parseInt(document.getElementById('cancellations').value) || 0;
             const isLoyalty = document.getElementById('loyalty').checked;
             const isAppUser = document.getElementById('appUser').checked;
-
+ 
             console.log("Values:", { recency, frequency, tickets, cancellations, isLoyalty, isAppUser });
 
             // 2. Simulate Model Logic (Weighted Score)
