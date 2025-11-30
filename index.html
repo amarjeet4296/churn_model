@@ -1,136 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravelRetain AI | Churn Prediction</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <div class="app-container">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="logo">
-                <i class="fa-solid fa-plane-departure"></i>
-                <span>TravelRetain AI</span>
-            </div> 
-            <nav>
-                <a href="#" class="active"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
-                <a href="#"><i class="fa-solid fa-users"></i> Customers</a>
-                <a href="#"><i class="fa-solid fa-wand-magic-sparkles"></i> Predictor</a>
-                <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
-            </nav>
+                <div class="logo-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <span>TravelRetain</span>
+            </div>
+
+            <div class="nav-section">
+                <span class="nav-label">CORE MODULES</span>
+                <nav>
+                    <a href="#" class="nav-item active" data-target="dashboard">
+                        <i class="fa-solid fa-grid-2"></i> Dashboard
+                    </a>
+                    <a href="#" class="nav-item" data-target="prediction-lab">
+                        <i class="fa-solid fa-sliders"></i> Prediction Lab
+                    </a>
+                    <a href="#" class="nav-item" data-target="at-risk">
+                        <i class="fa-solid fa-users-viewfinder"></i> At-Risk Clients
+                        <span class="badge">12</span>
+                    </a>
+                </nav>
+            </div>
+
             <div class="user-profile">
-                <div class="avatar">AD</div>
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="User"
+                    class="avatar">
                 <div class="info">
                     <span class="name">Admin User</span>
-                    <span class="role">Travel Agency Manager</span>
+                    <span class="role">Head of Retention</span>
                 </div>
             </div>
         </aside>
 
-        <!-- Main Content -->
+        <!-- Main Content Area -->
         <main class="main-content">
-            <header>
-                <h1>Churn Prediction Dashboard</h1>
-                <div class="date-display">November 30, 2025</div>
-            </header>
 
-            <!-- Stats Cards -->
-            <div class="stats-grid">
-                <div class="card stat-card">
-                    <div class="icon-bg blue"><i class="fa-solid fa-users-line"></i></div>
-                    <div class="stat-info">
-                        <h3>Total Customers</h3>
-                        <p class="value">12,450</p>
-                        <span class="trend positive"><i class="fa-solid fa-arrow-up"></i> 2.4%</span>
+            <!-- VIEW 1: DASHBOARD -->
+            <section id="dashboard" class="view-section active">
+                <header class="view-header">
+                    <div>
+                        <h1>Executive Overview</h1>
+                        <p class="subtitle">Real-time churn monitoring and risk analysis.</p>
+                    </div>
+                    <div class="header-actions">
+                        <div class="status-indicator">
+                            <span class="dot"></span> Model Status: Active
+                        </div>
+                        <div class="date-picker">
+                            <i class="fa-regular fa-calendar"></i> Oct 2025
+                        </div>
+                    </div>
+                </header>
+
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="card kpi-card">
+                        <div class="kpi-top">
+                            <div class="icon-box red-bg"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                            <span class="trend-badge negative">+2.4%</span>
+                        </div>
+                        <div class="kpi-value">14.2%</div>
+                        <div class="kpi-label">Predicted Churn Rate</div>
+                    </div>
+
+                    <div class="card kpi-card">
+                        <div class="kpi-top">
+                            <div class="icon-box blue-bg"><i class="fa-solid fa-user-check"></i></div>
+                            <span class="trend-badge positive">+12%</span>
+                        </div>
+                        <div class="kpi-value">892</div>
+                        <div class="kpi-label">Retained Customers</div>
+                    </div>
+
+                    <div class="card kpi-card">
+                        <div class="kpi-top">
+                            <div class="icon-box purple-bg"><i class="fa-solid fa-tags"></i></div>
+                            <span class="trend-badge neutral">Avg</span>
+                        </div>
+                        <div class="kpi-value">42</div>
+                        <div class="kpi-label">Net Promoter Score</div>
+                    </div>
+
+                    <div class="card kpi-card">
+                        <div class="kpi-top">
+                            <div class="icon-box yellow-bg"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                            <span class="trend-badge warning">Action Needed</span>
+                        </div>
+                        <div class="kpi-value">34</div>
+                        <div class="kpi-label">High Risk Clients</div>
                     </div>
                 </div>
-                <div class="card stat-card">
-                    <div class="icon-bg red"><i class="fa-solid fa-user-xmark"></i></div>
-                    <div class="stat-info">
-                        <h3>Churn Rate (MoM)</h3>
-                        <p class="value">18.2%</p>
-                        <span class="trend negative"><i class="fa-solid fa-arrow-down"></i> 1.1%</span>
-                    </div>
-                </div>
-                <div class="card stat-card">
-                    <div class="icon-bg gold"><i class="fa-solid fa-coins"></i></div>
-                    <div class="stat-info">
-                        <h3>Revenue at Risk</h3>
-                        <p class="value">$45,200</p>
-                        <span class="trend neutral">Stable</span>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Prediction Section -->
-            <div class="content-grid">
-                <!-- Input Form -->
-                <div class="card form-card">
-                    <h2><i class="fa-solid fa-sliders"></i> Customer Parameters</h2>
-                    <form id="churnForm">
-                        <div class="form-group">
-                            <label>Days Since Last Booking</label>
-                            <input type="range" id="recency" min="0" max="730" value="120" oninput="recencyVal.innerText = this.value">
-                            <span class="range-val" id="recencyVal">120</span> days
+                <!-- Charts Row -->
+                <div class="charts-grid">
+                    <div class="card chart-card">
+                        <div class="card-header">
+                            <h3>Churn Risk Forecast</h3>
+                            <a href="#" class="link-btn">View Full Report</a>
                         </div>
-
-                        <div class="form-group">
-                            <label>Bookings (Last 12 Months)</label>
-                            <input type="number" id="frequency" min="0" max="50" value="2">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Support Tickets (Last 6 Months)</label>
-                            <input type="number" id="tickets" min="0" max="20" value="0">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Cancellations (Last 12 Months)</label>
-                            <input type="number" id="cancellations" min="0" max="10" value="0">
-                        </div>
-
-                        <div class="form-row">
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="loyalty">
-                                <label for="loyalty">Loyalty Member</label>
+                        <div class="chart-placeholder">
+                            <!-- Simple CSS Chart for visual -->
+                            <div class="bar-chart">
+                                <div class="bar" style="height: 30%"></div>
+                                <div class="bar" style="height: 45%"></div>
+                                <div class="bar" style="height: 35%"></div>
+                                <div class="bar" style="height: 60%"></div>
+                                <div class="bar" style="height: 50%"></div>
+                                <div class="bar" style="height: 70%"></div>
+                                <div class="bar active" style="height: 40%"></div>
                             </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="appUser">
-                                <label for="appUser">App User</label>
+                        </div>
+                    </div>
+
+                    <div class="card drivers-card">
+                        <div class="card-header">
+                            <h3>Top Churn Drivers</h3>
+                        </div>
+                        <div class="driver-list">
+                            <div class="driver-item">
+                                <div class="driver-info">
+                                    <span>Price Sensitivity</span>
+                                    <span class="driver-val">82%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="fill red" style="width: 82%"></div>
+                                </div>
+                            </div>
+                            <div class="driver-item">
+                                <div class="driver-info">
+                                    <span>Poor Support Response</span>
+                                    <span class="driver-val">65%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="fill orange" style="width: 65%"></div>
+                                </div>
+                            </div>
+                            <div class="driver-item">
+                                <div class="driver-info">
+                                    <span>Low Engagement</span>
+                                    <span class="driver-val">45%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="fill yellow" style="width: 45%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recovered Revenue Promo -->
+                <div class="recovered-card">
+                    <div class="recovered-content">
+                        <span class="label">Recovered Revenue</span>
+                        <div class="amount">$124,500</div>
+                        <div class="progress-container">
+                            <div class="progress-bar-dark">
+                                <div class="fill-green" style="width: 75%"></div>
+                            </div>
+                            <span class="subtext">75% of monthly goal</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-piggy-bank bg-icon"></i>
+                </div>
+            </section>
+
+
+            <!-- VIEW 2: PREDICTION LAB -->
+            <section id="prediction-lab" class="view-section" style="display: none;">
+                <header class="view-header">
+                    <div>
+                        <h1>Prediction Lab</h1>
+                        <p class="subtitle">Configure weights and simulate customer scenarios to test model accuracy.
+                        </p>
+                    </div>
+                </header>
+
+                <div class="lab-grid">
+                    <!-- Config Panel -->
+                    <div class="card config-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-sliders"></i> Model Configuration</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label>ALGORITHM</label>
+                            <select class="form-select">
+                                <option>XGBoost (Gradient Boosting)</option>
+                                <option>Random Forest</option>
+                                <option>Logistic Regression</option>
+                            </select>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <h4>FEATURE IMPORTANCE WEIGHTS</h4>
+
+                        <div class="weight-control">
+                            <div class="weight-label">
+                                <span>Recency (Days since trip)</span>
+                                <span class="weight-val text-blue">High</span>
+                            </div>
+                            <input type="range" class="slider blue" value="80">
+                        </div>
+
+                        <div class="weight-control">
+                            <div class="weight-label">
+                                <span>Support Ticket Sentiment</span>
+                                <span class="weight-val text-blue">Med</span>
+                            </div>
+                            <input type="range" class="slider blue" value="50">
+                        </div>
+                    </div>
+
+                    <!-- Simulator Panel -->
+                    <div class="card simulator-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-flask"></i> Single Customer Simulator</h3>
+                        </div>
+
+                        <div class="sim-controls">
+                            <div class="control-row">
+                                <div class="control-group">
+                                    <label>DAYS SINCE LAST BOOKING</label>
+                                    <div class="input-wrap">
+                                        <input type="range" id="sim-recency" min="0" max="365" value="120"
+                                            class="slider purple">
+                                        <span class="val-box" id="val-recency">120</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label>SUPPORT COMPLAINTS (LAST 6MO)</label>
+                                    <div class="input-wrap">
+                                        <input type="range" id="sim-tickets" min="0" max="10" value="1"
+                                            class="slider purple">
+                                        <span class="val-box" id="val-tickets">1</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-row">
+                                <div class="control-group">
+                                    <label>NPS SCORE (0-10)</label>
+                                    <div class="input-wrap">
+                                        <input type="range" id="sim-nps" min="0" max="10" value="8"
+                                            class="slider purple">
+                                        <span class="val-box" id="val-nps">8</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label>ANNUAL SPEND ($)</label>
+                                    <div class="input-wrap">
+                                        <input type="range" id="sim-spend" min="0" max="20000" step="100" value="5000"
+                                            class="slider purple">
+                                        <span class="val-box" id="val-spend">5000</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn-primary">Predict Churn Risk</button>
-                    </form>
-                </div>
-
-                <!-- Result Card -->
-                <div class="card result-card" id="resultCard">
-                    <div class="result-header">
-                        <h2>Risk Analysis</h2>
-                        <div class="risk-badge" id="riskBadge">Unknown</div>
-                    </div>
-                    
-                    <div class="gauge-container">
-                        <div class="gauge-bg"></div>
-                        <div class="gauge-fill" id="gaugeFill"></div>
-                        <div class="gauge-cover">
-                            <span id="riskScore">--%</span>
+                        <div class="prediction-result">
+                            <span class="pred-label">REAL-TIME PREDICTION</span>
+                            <div class="pred-value" id="realtime-score">38%</div>
+                            <div class="pred-status" id="realtime-status">Medium Risk</div>
                         </div>
                     </div>
-
-                    <div class="recommendation-box">
-                        <h3><i class="fa-solid fa-lightbulb"></i> AI Recommendation</h3>
-                        <p id="recommendationText">Enter customer data to generate a retention strategy.</p>
-                    </div>
                 </div>
-            </div>
+            </section>
+
+
+            <!-- VIEW 3: AT-RISK CLIENTS -->
+            <section id="at-risk" class="view-section" style="display: none;">
+                <header class="view-header">
+                    <div>
+                        <h1>At-Risk Customers</h1>
+                    </div>
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search clients...">
+                    </div>
+                </header>
+
+                <div class="card table-card">
+                    <table class="clients-table">
+                        <thead>
+                            <tr>
+                                <th>CUSTOMER PROFILE</th>
+                                <th>LAST BOOKING</th>
+                                <th>LIFETIME VALUE</th>
+                                <th>RISK SCORE</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="client-profile">
+                                        <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=random"
+                                            alt="SJ">
+                                        <div>
+                                            <div class="client-name">Sarah Jenkins</div>
+                                            <div class="client-meta">Business Traveler • Platinum</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="date-info">45 days ago</div>
+                                </td>
+                                <td>$12,400</td>
+                                <td><span class="risk-pill high">High Risk (88%)</span></td>
+                                <td><button class="btn-analyze">Analyze</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="client-profile">
+                                        <img src="https://ui-avatars.com/api/?name=Marcus+Cole&background=random"
+                                            alt="MC">
+                                        <div>
+                                            <div class="client-name">Marcus Cole</div>
+                                            <div class="client-meta">Leisure • Gold</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="date-info">180 days ago</div>
+                                </td>
+                                <td>$3,200</td>
+                                <td><span class="risk-pill medium">Medium Risk (62%)</span></td>
+                                <td><button class="btn-analyze">Analyze</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="client-profile">
+                                        <img src="https://ui-avatars.com/api/?name=Robert+Chen&background=random"
+                                            alt="RC">
+                                        <div>
+                                            <div class="client-name">Robert Chen</div>
+                                            <div class="client-meta">Luxury • Diamond</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="date-info">12 days ago</div>
+                                </td>
+                                <td>$28,500</td>
+                                <td><span class="risk-pill low">Low Risk (12%)</span></td>
+                                <td><button class="btn-analyze">Analyze</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
         </main>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
