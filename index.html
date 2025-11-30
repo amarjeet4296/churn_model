@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelRetain AI | Churn Prediction</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-plane-departure"></i>
+                <span>TravelRetain AI</span>
+            </div>
+            <nav>
+                <a href="#" class="active"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
+                <a href="#"><i class="fa-solid fa-users"></i> Customers</a>
+                <a href="#"><i class="fa-solid fa-wand-magic-sparkles"></i> Predictor</a>
+                <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+            </nav>
+            <div class="user-profile">
+                <div class="avatar">AD</div>
+                <div class="info">
+                    <span class="name">Admin User</span>
+                    <span class="role">Travel Agency Manager</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1>Churn Prediction Dashboard</h1>
+                <div class="date-display">November 30, 2025</div>
+            </header>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="card stat-card">
+                    <div class="icon-bg blue"><i class="fa-solid fa-users-line"></i></div>
+                    <div class="stat-info">
+                        <h3>Total Customers</h3>
+                        <p class="value">12,450</p>
+                        <span class="trend positive"><i class="fa-solid fa-arrow-up"></i> 2.4%</span>
+                    </div>
+                </div>
+                <div class="card stat-card">
+                    <div class="icon-bg red"><i class="fa-solid fa-user-xmark"></i></div>
+                    <div class="stat-info">
+                        <h3>Churn Rate (MoM)</h3>
+                        <p class="value">18.2%</p>
+                        <span class="trend negative"><i class="fa-solid fa-arrow-down"></i> 1.1%</span>
+                    </div>
+                </div>
+                <div class="card stat-card">
+                    <div class="icon-bg gold"><i class="fa-solid fa-coins"></i></div>
+                    <div class="stat-info">
+                        <h3>Revenue at Risk</h3>
+                        <p class="value">$45,200</p>
+                        <span class="trend neutral">Stable</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prediction Section -->
+            <div class="content-grid">
+                <!-- Input Form -->
+                <div class="card form-card">
+                    <h2><i class="fa-solid fa-sliders"></i> Customer Parameters</h2>
+                    <form id="churnForm">
+                        <div class="form-group">
+                            <label>Days Since Last Booking</label>
+                            <input type="range" id="recency" min="0" max="730" value="120" oninput="recencyVal.innerText = this.value">
+                            <span class="range-val" id="recencyVal">120</span> days
+                        </div>
+
+                        <div class="form-group">
+                            <label>Bookings (Last 12 Months)</label>
+                            <input type="number" id="frequency" min="0" max="50" value="2">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Support Tickets (Last 6 Months)</label>
+                            <input type="number" id="tickets" min="0" max="20" value="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Cancellations (Last 12 Months)</label>
+                            <input type="number" id="cancellations" min="0" max="10" value="0">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="loyalty">
+                                <label for="loyalty">Loyalty Member</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="appUser">
+                                <label for="appUser">App User</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Predict Churn Risk</button>
+                    </form>
+                </div>
+
+                <!-- Result Card -->
+                <div class="card result-card" id="resultCard">
+                    <div class="result-header">
+                        <h2>Risk Analysis</h2>
+                        <div class="risk-badge" id="riskBadge">Unknown</div>
+                    </div>
+                    
+                    <div class="gauge-container">
+                        <div class="gauge-bg"></div>
+                        <div class="gauge-fill" id="gaugeFill"></div>
+                        <div class="gauge-cover">
+                            <span id="riskScore">--%</span>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-box">
+                        <h3><i class="fa-solid fa-lightbulb"></i> AI Recommendation</h3>
+                        <p id="recommendationText">Enter customer data to generate a retention strategy.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
